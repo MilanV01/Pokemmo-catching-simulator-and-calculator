@@ -1,4 +1,5 @@
 import random
+import CatchRate
 
 #17.359 %
 #male - female
@@ -8,7 +9,6 @@ import random
 #catch rate calculator (myb test it)
 #prices for 1 31iv and myb 2 31v average
 #after 4hrs per day for a week for encounters to figure out % for common rare etc
-
 
 
 Encounters=input('Please enter your expected encounter amount: ')
