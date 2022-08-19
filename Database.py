@@ -18,6 +18,23 @@ def create_table():
     conn.commit()
     conn.close()
 
+def search(Name):
+    conn = sqlite3.connect("data/pokemon.db")
+    c = conn.cursor()
+    c.execute(f"SELECT rowid, * FROM Pokemon WHERE Pokemon='{Name}' ")
+    result=c.fetchall()
+    conn.commit()
+    conn.close()
+    return result
+
+def searchAll(Location,Name):
+    conn = sqlite3.connect("data/pokemon.db")
+    c = conn.cursor()
+    c.execute(f"SELECT rowid, * FROM Pokemon WHERE Pokemon IS NOT '{Name}' AND WildLocation LIKE '%{Location}%'")
+    result=c.fetchall()
+    conn.commit()
+    conn.close()
+    return result
 
 def fromCSV():
     conn=sqlite3.connect("data/pokemon.db")
