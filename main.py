@@ -1,25 +1,32 @@
 import random
-import CatchRate
+import Database
 
-#17.359 %
 #male - female
 #convert to tkinter
 #put avg time per encounter
 #price per pokeball
-#catch rate calculator (myb test it)
 #prices for 1 31iv and myb 2 31v average
 #after 4hrs per day for a week for encounters to figure out % for common rare etc
-
+#after everything add something that simulates all encounters with the same catching method (have to add something that decides the best route for a specific pkmn)
+#add warning that if u dotn include type and region wont be as accurate & safari/alterig might not be accurate
 
 Encounters=input('Please enter your expected encounter amount: ')
 while (Encounters.isdigit()==False):
     Encounters=input("Error, enter the number of encounters again (intiger): ")
 
 CatchingEncounters=input('Please enter your expected cathing pokemon encounter amount: ')
-while (CatchingEncounters.isdigit()==False or Encounters<=CatchingEncounters):
+while (CatchingEncounters.isdigit()==False or int(Encounters)<=int(CatchingEncounters)):
     CatchingEncounters=input("Error, must be smaller or equal to the total encounters number: ")
 
 DonatorStatus=input('Donator status (Y, N): ')
+
+Gender=input('Input targeted gender (M,F,A): ')
+Pokemon=input('Enter pokemon name: ')
+for ix, item in enumerate(Database.search(Pokemon)):Male=item[5]
+for ix, item in enumerate(Database.search(Pokemon)):Female=item[6]
+print(Male)
+print(Female)
+print(float(Male.replace("%", "")))
 
 NumberofSimulations=1
 for x in range(NumberofSimulations):
